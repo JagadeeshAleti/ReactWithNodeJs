@@ -1,13 +1,7 @@
 .book {
-  width: 210px;
-  margin-top: 50px;
-  margin-left: 20px;
-  border-radius: 3px;
-  box-shadow: 2px 2px 2px 2px green;
-}
-
-.book .book_image {
-  width: 200px;
-  height: 250px;
-  margin: 5px;
+  width: 250px;
+  padding: 10px;
+  margin: 25px;
+  font-size: 18px;
+  background: grey;
 }

@@ -4,7 +4,9 @@ export class Book extends React.Component {
   render() {
     return (
       <div className="book">
-        <img className="book_image" src={this.props.url} alt="book" />
+        <p>{this.props.name}</p>
+        <p>{this.props.author}</p>
+        <p>{this.props.status}</p>
       </div>
     );
   }

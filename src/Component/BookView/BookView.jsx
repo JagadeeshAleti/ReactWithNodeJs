@@ -24,7 +24,29 @@ export class BookView extends React.Component {
   };
   render() {
     console.log(this.state.book);
-    return <div>Book View</div>;
+    return (
+      <div>
+        <div>
+          <h4>Book</h4>
+          <h4>{this.state.book.name}</h4>
+        </div>
+
+        <div>
+          <h4>Author</h4>
+          <h4>{this.state.book.author}</h4>
+        </div>
+
+        <div>
+          <h4>Status</h4>
+          <h4>{this.state.book.status}</h4>
+        </div>
+
+        <div>
+          <h4>Updated At</h4>
+          <h4>{this.state.book.updatedAt}</h4>
+        </div>
+      </div>
+    );
   }
 }
 

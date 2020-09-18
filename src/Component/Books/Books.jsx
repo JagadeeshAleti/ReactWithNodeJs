@@ -29,19 +29,15 @@ export class Books extends React.Component {
   showBooks = () => {
     const books = this.state.books.books.map((book, index) => {
       return (
-        <Book
-          key={index}
-          name={book.name}
-          author={book.author}
-          status={book.status}
-        />
+        <Link key={"book" + index} to={"/book/" + book._id}>
+          <Book name={book.name} author={book.author} status={book.status} />
+        </Link>
       );
     });
     return books;
   };
 
   render() {
-    console.log(this.state.books);
     return <div className="books-list">{this.showBooks()}</div>;
   }
 }

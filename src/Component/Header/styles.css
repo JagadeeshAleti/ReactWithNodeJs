@@ -1,8 +1,9 @@
 .header {
-  background: rgb(36, 35, 35);
   height: 170px;
   width: 100%;
+  background: #163238;
   display: inline-block;
+  border-radius: 3px;
 }
 
 .header h1 {

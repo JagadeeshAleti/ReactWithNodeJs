@@ -1,0 +1,19 @@
+.attribute {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.attribute h4 {
+  width: 150px;
+  font-size: 24px;
+  color: cadetblue;
+}
+
+.book-view {
+  margin: auto;
+  max-width: 600px;
+  margin-top: 100px;
+  background-color: rgb(60, 0, 0);
+  border-radius: 3px;
+  box-shadow: 2px 2px 2px 5px #1a237e;
+}

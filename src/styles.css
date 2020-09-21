@@ -1,8 +1,19 @@
+body {
+  background: #90a4ae;
+}
 h1 {
   margin: 0;
 }
 
 a {
-  text-decoration: none;
   color: black;
+  text-decoration: none;
+}
+
+.links {
+  margin-top: 15px;
+  font-size: 24px;
+
+  justify-content: space-evenly;
+  display: flex;
 }

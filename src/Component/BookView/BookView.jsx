@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { withRouter } from "react-router";
+import "./styles.css";
 export class BookView extends React.Component {
   state = {
     book: {},
@@ -22,29 +23,25 @@ export class BookView extends React.Component {
         console.error(error);
       });
   };
+
+  bookAttribute = (title, key) => {
+    const value = this.state.book[key];
+    return (
+      <div className="attribute">
+        <h4>{title}</h4>
+        <h4>{value}</h4>
+      </div>
+    );
+  };
+
   render() {
     console.log(this.state.book);
     return (
-      <div>
-        <div>
-          <h4>Book</h4>
-          <h4>{this.state.book.name}</h4>
-        </div>
-
-        <div>
-          <h4>Author</h4>
-          <h4>{this.state.book.author}</h4>
-        </div>
-
-        <div>
-          <h4>Status</h4>
-          <h4>{this.state.book.status}</h4>
-        </div>
-
-        <div>
-          <h4>Updated At</h4>
-          <h4>{this.state.book.updatedAt}</h4>
-        </div>
+      <div className="book-view">
+        {this.bookAttribute("Book", "name")}
+        {this.bookAttribute("Author", "author")}
+        {this.bookAttribute("Status", "status")}
+        {this.bookAttribute("Updated At", "updatedAt")}
       </div>
     );
   }

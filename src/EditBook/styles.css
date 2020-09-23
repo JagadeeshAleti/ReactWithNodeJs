@@ -1,9 +1,9 @@
-.create-book {
+.edit-book {
   margin: auto;
   width: 300px;
   padding: 20px;
   margin-top: 100px;
-  box-shadow: 1px 1px 4px 1px magenta;
+  box-shadow: 1px 1px 4px 1px rgba(197, 22, 22, 0.555);
 }
 
 input {

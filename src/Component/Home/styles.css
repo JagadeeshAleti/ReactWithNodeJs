@@ -1,0 +1,20 @@
+.home {
+  width: 1000px;
+  margin: auto;
+  margin-top: 50px;
+  text-align: center;
+  border-radius: 3px;
+  box-shadow: 1px 1px 3px 1px black;
+}
+
+.message {
+  padding: 25px;
+  color: rgb(60, 60, 120);
+  text-decoration: underline;
+}
+
+.image {
+  margin-bottom: 25px;
+  border-radius: 2px;
+  box-shadow: 1px 1px 3px 1px black;
+}

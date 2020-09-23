@@ -17,17 +17,16 @@ export class CreateBook extends React.Component {
   };
 
   createBook = () => {
-    console.log(this.state);
     const book = {
       name: this.state.name,
       author: this.state.author,
     };
     axios
       .post("http://localhost:9001/book", book)
-      .then(function (response) {
-        console.log(response);
+      .then((response) => {
+        this.props.history.push("/book/" + response.data._id);
       })
-      .catch(function (error) {
+      .catch((error) => {
         console.log(error);
       });
   };

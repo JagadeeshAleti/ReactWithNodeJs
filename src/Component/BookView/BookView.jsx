@@ -49,6 +49,38 @@ export class BookView extends React.Component {
       });
   };
 
+  checkoutBook = () => {
+    const bookId = this.state.book._id;
+    axios
+      .patch(
+        `http://localhost:9001/book/${bookId}/checkout/5f1fa67cac44670d6490ce51`
+      )
+      .then((response) => {
+        this.setState({
+          book: response.data.book,
+        });
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  returnBook = () => {
+    const bookId = this.state.book._id;
+    axios
+      .patch(
+        `http://localhost:9001/book/${bookId}/return/5f1fa67cac44670d6490ce51`
+      )
+      .then((response) => {
+        this.setState({
+          book: response.data.book,
+        });
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
   render() {
     const bookId = this.props.match.params.id;
     return (
@@ -63,6 +95,15 @@ export class BookView extends React.Component {
           <Link to={"/edit-book/" + bookId} className="edit">
             Edit
           </Link>
+          {this.state.book.status === "AVAILABLE" ? (
+            <button className="checkout" onClick={this.checkoutBook}>
+              Checkout
+            </button>
+          ) : (
+            <button className="return" onClick={this.returnBook}>
+              Return
+            </button>
+          )}
           <button onClick={this.deleteBook} className="delete">
             Delete
           </button>

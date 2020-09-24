@@ -19,7 +19,7 @@
 }
 
 .edit-delete {
-  width: 350px;
+  width: 500px;
   margin: auto;
   margin-top: 25px;
   display: flex;
@@ -34,7 +34,7 @@
   padding: 10px;
   border-radius: 3px;
   background-color: bisque;
-  box-shadow: 3px 3px 3px 1px #1a237e;
+  box-shadow: 2px 2px 3px 2px black;
 }
 
 .delete {
@@ -44,5 +44,25 @@
   padding: 10px;
   border-radius: 3px;
   background-color: brown;
-  box-shadow: 1px 1px 3px 1px #1a237e;
+  box-shadow: 1px 1px 3px 1px black;
+}
+
+.checkout {
+  font-size: 24px;
+  width: 130px;
+  max-height: 50px;
+  padding: 10px;
+  border-radius: 3px;
+  background-color: lightgreen;
+  box-shadow: 1px 1px 3px 1px black;
+}
+
+.return {
+  font-size: 24px;
+  width: 120px;
+  max-height: 50px;
+  padding: 10px;
+  border-radius: 3px;
+  background-color: lightgreen;
+  box-shadow: 1px 1px 3px 1px black;
 }

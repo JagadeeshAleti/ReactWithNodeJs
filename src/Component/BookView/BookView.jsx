@@ -1,8 +1,8 @@
 import React from "react";
 import axios from "axios";
 import { withRouter } from "react-router";
-import "./styles.css";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import "./styles.css";
 
 export class BookView extends React.Component {
   state = {

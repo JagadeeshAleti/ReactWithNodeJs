@@ -5,25 +5,31 @@ import { Header } from "./Component/Header/Header";
 import { Books } from "./Component/Books/Books";
 import { CreateBook } from "./Component/CreateBook/CreateBook";
 import BookView from "./Component/BookView/BookView";
+import { PrivateRoute } from "./Component/PrivateRoute";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { EditBook } from "./Component/EditBook/EditBook";
 import { LogIn } from "./Component/LogIn/LogIn";
 
-export function CustomRouter() {
-  return (
-    <div>
-      <Router>
-        <Header />
-        <Links />
-        <Switch>
-          <Route path="/create-book" component={CreateBook}></Route>
-          <Route path="/book/:id" component={BookView}></Route>
-          <Route path="/books" component={Books}></Route>
-          <Route path="/edit-book/:id" component={EditBook}></Route>
-          <Route path="/log-in" component={LogIn}></Route>
-          <Route path="/" component={Home}></Route>
-        </Switch>
-      </Router>
-    </div>
-  );
+export class CustomRouter extends React.Component {
+  render() {
+    return (
+      <div>
+        <Router>
+          <Header />
+          <Links />
+          <Switch>
+            <PrivateRoute
+              path="/create-book"
+              component={CreateBook}
+            ></PrivateRoute>
+            <Route path="/book/:id" component={BookView}></Route>
+            <PrivateRoute path="/books" component={Books}></PrivateRoute>
+            <Route path="/edit-book/:id" component={EditBook}></Route>
+            <PrivateRoute path="/home" component={Home}></PrivateRoute>
+            <Route path="/" component={LogIn}></Route>
+          </Switch>
+        </Router>
+      </div>
+    );
+  }
 }

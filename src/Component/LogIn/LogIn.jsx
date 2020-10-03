@@ -51,6 +51,7 @@ export class LogIn extends React.Component {
   render() {
     return (
       <div className="log-in">
+        <h1>LogIn to our Store</h1>
         <input placeholder="User Name" onChange={this.setUser} />
         <input placeholder="Password" onChange={this.setPassword} />
         <button type="submit" onClick={this.login}>

@@ -9,6 +9,7 @@ import { PrivateRoute } from "./Component/PrivateRoute";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { EditBook } from "./Component/EditBook/EditBook";
 import { LogIn } from "./Component/LogIn/LogIn";
+import { LogOut } from "./Component/LogOut/LogOut";
 
 export class CustomRouter extends React.Component {
   render() {
@@ -26,6 +27,7 @@ export class CustomRouter extends React.Component {
             <PrivateRoute path="/books" component={Books}></PrivateRoute>
             <Route path="/edit-book/:id" component={EditBook}></Route>
             <PrivateRoute path="/home" component={Home}></PrivateRoute>
+            <PrivateRoute path="/log-out" component={LogOut}></PrivateRoute>
             <Route path="/" component={LogIn}></Route>
           </Switch>
         </Router>

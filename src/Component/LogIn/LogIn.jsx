@@ -38,14 +38,11 @@ export class LogIn extends React.Component {
         const token = response.data.token;
         console.log(token);
         localStorage.setItem("token", token);
+        this.props.history.push("/home");
       })
       .catch((error) => {
         console.error(error);
       });
-  };
-
-  handleFormSubmit = () => {
-    console.log(this.state);
   };
 
   render() {

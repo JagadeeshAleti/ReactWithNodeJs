@@ -9,13 +9,18 @@ export class BookView extends React.Component {
     book: {},
   };
   componentDidMount = () => {
+    const token = localStorage.getItem("token");
     const bookId = this.props.match.params.id;
-    this.getBookView(bookId);
+    this.getBookView(bookId, token);
   };
 
-  getBookView = (bookId) => {
+  getBookView = (bookId, token) => {
     axios
-      .get("http://localhost:9001/book/" + bookId)
+      .get("http://localhost:9001/book/" + bookId, {
+        headers: {
+          Authorization: token,
+        },
+      })
       .then((response) => {
         this.setState({
           book: response.data,
@@ -38,8 +43,13 @@ export class BookView extends React.Component {
 
   deleteBook = () => {
     const bookId = this.props.match.params.id;
+    const token = localStorage.getItem("token");
     axios
-      .delete("http://localhost:9001/book/" + bookId)
+      .delete("http://localhost:9001/book/" + bookId, {
+        headers: {
+          Authorization: token,
+        },
+      })
       .then((response) => {
         //navigate to other page
         this.props.history.push("/books");
@@ -51,9 +61,16 @@ export class BookView extends React.Component {
 
   checkoutBook = () => {
     const bookId = this.state.book._id;
+    const token = localStorage.getItem("token");
     axios
-      .patch(
-        `http://localhost:9001/book/${bookId}/checkout/5f1fa67cac44670d6490ce51`
+      .put(
+        `http://localhost:9001/book/${bookId}/checkout/5f1fa67cac44670d6490ce51`,
+        undefined,
+        {
+          headers: {
+            Authorization: token,
+          },
+        }
       )
       .then((response) => {
         this.setState({
@@ -67,9 +84,16 @@ export class BookView extends React.Component {
 
   returnBook = () => {
     const bookId = this.state.book._id;
+    const token = localStorage.getItem("token");
     axios
-      .patch(
-        `http://localhost:9001/book/${bookId}/return/5f1fa67cac44670d6490ce51`
+      .put(
+        `http://localhost:9001/book/${bookId}/return/5f1fa67cac44670d6490ce51`,
+        undefined,
+        {
+          headers: {
+            Authorization: token,
+          },
+        }
       )
       .then((response) => {
         this.setState({

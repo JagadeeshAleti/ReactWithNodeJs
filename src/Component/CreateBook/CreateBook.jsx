@@ -18,12 +18,17 @@ export class CreateBook extends React.Component {
   };
 
   createBook = () => {
+    const token = localStorage.getItem("token");
     const book = {
       name: this.state.name,
       author: this.state.author,
     };
     axios
-      .post("http://localhost:9001/book", book)
+      .post("http://localhost:9001/book", book, {
+        headers: {
+          Authorization: token,
+        },
+      })
       .then((response) => {
         this.props.history.push("/book/" + response.data._id);
       })

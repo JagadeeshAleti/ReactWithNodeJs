@@ -10,12 +10,17 @@ export class Books extends React.Component {
   };
 
   componentDidMount = () => {
-    this.getBook();
+    const token = localStorage.getItem("token");
+    this.getBook(token);
   };
 
-  getBook = () => {
+  getBook = (token) => {
     axios
-      .get("http://localhost:9001/book")
+      .get("http://localhost:9001/book", {
+        headers: {
+          Authorization: token,
+        },
+      })
       .then((response) => {
         this.setState({
           books: response.data,

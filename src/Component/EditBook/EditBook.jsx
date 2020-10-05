@@ -7,12 +7,17 @@ export class EditBook extends React.Component {
   };
 
   componentDidMount = () => {
+    const token = localStorage.getItem("token");
     const bookId = this.props.match.params.id;
-    this.getBookInfo(bookId);
+    this.getBookInfo(bookId, token);
   };
-  getBookInfo = (bookId) => {
+  getBookInfo = (bookId, token) => {
     axios
-      .get("http://localhost:9001/book/" + bookId)
+      .get("http://localhost:9001/book/" + bookId, {
+        headers: {
+          Authorization: token,
+        },
+      })
       .then((response) => {
         this.setState({
           book: response.data,
@@ -46,11 +51,15 @@ export class EditBook extends React.Component {
   editBook = () => {
     const bookId = this.state.book._id;
     const book = this.state.book;
-
+    const token = localStorage.getItem("token");
     const { createdAt, _id, updatedAt, __v, ...restOfBook } = book;
 
     axios
-      .put("http://localhost:9001/book/" + bookId, restOfBook)
+      .put("http://localhost:9001/book/" + bookId, restOfBook, {
+        headers: {
+          Authorization: token,
+        },
+      })
       .then(() => {
         this.props.history.push(`/book/${bookId}`);
       })

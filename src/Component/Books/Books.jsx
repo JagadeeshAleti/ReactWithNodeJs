@@ -27,7 +27,9 @@ export class Books extends React.Component {
         });
       })
       .catch((error) => {
-        console.error(error);
+        if (error.response.status === 401) {
+          this.props.history.push("/log-out");
+        }
       });
   };
 

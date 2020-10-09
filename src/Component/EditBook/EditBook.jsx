@@ -64,7 +64,9 @@ export class EditBook extends React.Component {
         this.props.history.push(`/book/${bookId}`);
       })
       .catch((error) => {
-        console.error(error);
+        if (error.response.status === 401) {
+          this.props.history.push("/log-out");
+        }
       });
   };
 

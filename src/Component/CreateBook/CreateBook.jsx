@@ -33,7 +33,9 @@ export class CreateBook extends React.Component {
         this.props.history.push("/book/" + response.data._id);
       })
       .catch((error) => {
-        console.log(error);
+        if (error.response.status === 401) {
+          this.props.history.push("/log-out");
+        }
       });
   };
 

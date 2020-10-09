@@ -22,12 +22,15 @@ export class BookView extends React.Component {
         },
       })
       .then((response) => {
+        console.log(response);
         this.setState({
           book: response.data,
         });
       })
       .catch((error) => {
-        console.error(error);
+        if (error.response.status === 401) {
+          this.props.history.push("/log-out");
+        }
       });
   };
 
@@ -51,11 +54,12 @@ export class BookView extends React.Component {
         },
       })
       .then((response) => {
-        //navigate to other page
         this.props.history.push("/books");
       })
       .catch((error) => {
-        console.error(error);
+        if (error.response.status === 401) {
+          this.props.history.push("/log-out");
+        }
       });
   };
 
